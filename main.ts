@@ -1,181 +1,101 @@
-//This is required because otherwise the variable is undifined
-let playerSprite = sprites.create(assets.image`Matthew0`, SpriteKind.Player)
-//Use these functions when walking in a certain direction
-walkUp()
-function walkDown() {
-    animation.runImageAnimation(
-    playerSprite,
-        [img`
-    . . . . . . . f f . . . . . . . 
-    . . . . . f f 2 2 f f . . . . . 
-    . . . . f 2 2 2 2 2 2 f . . . . 
-    . . . f 2 6 6 6 6 6 6 2 f . . . 
-    . . f 2 6 2 2 2 2 2 2 6 2 f . . 
-    . . f 6 2 f f f f f f 2 6 f . . 
-    . . f f f f 9 9 9 9 f f f f . . 
-    . . . f f b f e e f b f f . . . 
-    . . . f e 1 f e e f 1 e f . . . 
-    . . . . f e e e e e e f . . . . 
-    . . . f f f e e e e f f f . . . 
-    . . f e f 2 2 2 2 2 2 f e f . . 
-    . f e b f 2 2 2 2 2 2 f b e f . 
-    . f e e f 2 2 2 2 2 2 f e e f . 
-    . . f f f 8 8 8 8 8 8 f f f . . 
-    . . . . f 8 8 f f 8 8 f . . . . 
-            `, img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . f f . . . . . . . 
-. . . . . f f 2 2 f f . . . . . 
-. . . . f 2 2 2 2 2 2 f . . . . 
-. . . f 2 6 6 6 6 6 6 2 f . . . 
-. . f 2 6 2 2 2 2 2 2 6 2 f . . 
-. . f 6 2 f f f f f f 2 6 f . . 
-. . f f f f 9 9 9 9 f f f f . . 
-. . . f f b f e e f b f f . . . 
-. . . f e 1 f e e f 1 e f . . . 
-. . . f f e e e e e e f f . . . 
-. . f e f 2 e e e e f e e f . . 
-. f e b f 2 2 2 2 2 f e e f . . 
-. f f f f 2 2 2 2 2 2 f f . . . 
-. . . . f 8 8 8 f f f f . . . . 
-. . . . f 8 8 f . . . . . . . . 
-            `, img`
-    . . . . . . . f f . . . . . . . 
-    . . . . . f f 2 2 f f . . . . . 
-    . . . . f 2 2 2 2 2 2 f . . . . 
-    . . . f 2 6 6 6 6 6 6 2 f . . . 
-    . . f 2 6 2 2 2 2 2 2 6 2 f . . 
-    . . f 6 2 f f f f f f 2 6 f . . 
-    . . f f f f 9 9 9 9 f f f f . . 
-    . . . f f b f e e f b f f . . . 
-    . . . f e 1 f e e f 1 e f . . . 
-    . . . . f e e e e e e f . . . . 
-    . . . f f f e e e e f f f . . . 
-    . . f e f 2 2 2 2 2 2 f e f . . 
-    . f e b f 2 2 2 2 2 2 f b e f . 
-    . f e e f 2 2 2 2 2 2 f e e f . 
-    . . f f f 8 8 8 8 8 8 f f f . . 
-    . . . . f 8 8 f f 8 8 f . . . . 
-            `, img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . f f . . . . . . . 
-. . . . . f f 2 2 f f . . . . . 
-. . . . f 2 2 2 2 2 2 f . . . . 
-. . . f 2 6 6 6 6 6 6 2 f . . . 
-. . f 2 6 2 2 2 2 2 2 6 2 f . . 
-. . f 6 2 f f f f f f 2 6 f . . 
-. . f f f f 9 9 9 9 f f f f . . 
-. . . f f b f e e f b f f . . . 
-. . . f e 1 f e e f 1 e f . . . 
-. . . f f e e e e e e f f . . . 
-. . f e e f e e e e 2 f e f . . 
-. . f e e f 2 2 2 2 2 f b e f . 
-. . . f f 2 2 2 2 2 2 f f f f . 
-. . . . f f f f 8 8 8 f . . . . 
-. . . . . . . . f 8 8 f . . . . 
-        `],
-    500,
-    true
-    )
+function playerHasStopped () {
+    if (currentDir != "Stop") {
+        currentDir = "Stop"
+        if (rotation == "right") {
+            animation.runImageAnimation(
+            Matthew,
+            assets.animation`MatthewRight0`,
+            200,
+            true
+            )
+        } else if (rotation == "down") {
+            animation.runImageAnimation(
+            Matthew,
+            assets.animation`MatthewDown0`,
+            200,
+            true
+            )
+        } else if (rotation == "left") {
+            animation.runImageAnimation(
+            Matthew,
+            assets.animation`MatthewLeft0`,
+            200,
+            true
+            )
+        } else if (rotation == "up") {
+            animation.runImageAnimation(
+            Matthew,
+            assets.animation`MatthewUp0`,
+            200,
+            true
+            )
+        }
+    }
 }
-function walkUp() {
-    animation.runImageAnimation(
-        playerSprite,
-        [img`
-. . . . . . . f f . . . . . . . 
-. . . . . f f 2 2 f f . . . . . 
-. . . . f 2 2 2 2 2 2 f . . . . 
-. . . f 2 6 6 6 6 6 6 2 f . . . 
-. . f 2 6 2 2 2 2 2 2 6 2 f . . 
-. . f 6 2 2 2 2 2 2 2 2 6 f . . 
-. . f f 2 2 2 2 2 2 2 2 f f . . 
-. . . f f f f f f f f f f . . . 
-. . . f e e e e e e e e f . . . 
-. . . . f e e e e e e f . . . . 
-. . . f f f e e e e f f f . . . 
-. . f e f 2 2 2 2 2 2 f e f . . 
-. f e b f 2 2 2 2 2 2 f b e f . 
-. f e e f 2 2 2 2 2 2 f e e f . 
-. . f f f 8 8 8 8 8 8 f f f . . 
-. . . . f 8 8 f f 8 8 f . . . . 
-            `, img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . f f . . . . . . . 
-. . . . . f f 2 2 f f . . . . . 
-. . . . f 2 2 2 2 2 2 f . . . . 
-. . . f 2 6 6 6 6 6 6 2 f . . . 
-. . f 2 6 2 2 2 2 2 2 6 2 f . . 
-. . f 6 2 2 2 2 2 2 2 2 6 f . . 
-. . f f 2 2 2 2 2 2 2 2 f f . . 
-. . . f f f f f f f f f f . . . 
-. . . f e e e e e e e e f . . . 
-. . . f f e e e e e e f . . . . 
-. . f e f 2 2 2 2 2 2 f . . . . 
-. . f b f 2 2 2 2 2 f f f f . . 
-. . f e f 2 2 2 2 2 f e e f . . 
-. . f f f 8 8 8 f f f f f . . . 
-. . . . f 8 8 f . . . . . . . . 
-            `, img`
-. . . . . . . f f . . . . . . . 
-. . . . . f f 2 2 f f . . . . . 
-. . . . f 2 2 2 2 2 2 f . . . . 
-. . . f 2 6 6 6 6 6 6 2 f . . . 
-. . f 2 6 2 2 2 2 2 2 6 2 f . . 
-. . f 6 2 2 2 2 2 2 2 2 6 f . . 
-. . f f 2 2 2 2 2 2 2 2 f f . . 
-. . . f f f f f f f f f f . . . 
-. . . f e e e e e e e e f . . . 
-. . . . f e e e e e e f . . . . 
-. . . f f f e e e e f f f . . . 
-. . f e f 2 2 2 2 2 2 f e f . . 
-. f e b f 2 2 2 2 2 2 f b e f . 
-. f e e f 2 2 2 2 2 2 f e e f . 
-. . f f f 8 8 8 8 8 8 f f f . . 
-. . . . f 8 8 f f 8 8 f . . . . 
-            `, img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . f f . . . . . . . 
-. . . . . f f 2 2 f f . . . . . 
-. . . . f 2 2 2 2 2 2 f . . . . 
-. . . f 2 6 6 6 6 6 6 2 f . . . 
-. . f 2 6 2 2 2 2 2 2 6 2 f . . 
-. . f 6 2 2 2 2 2 2 2 2 6 f . . 
-. . f f 2 2 2 2 2 2 2 2 f f . . 
-. . . f f f f f f f f f f . . . 
-. . . f e e e e e e e e f . . . 
-. . . . f e e e e e e f f . . . 
-. . . . f 2 2 2 2 2 2 f e f . . 
-. . f f f f 2 2 2 2 2 f b f . . 
-. . f e e f 2 2 2 2 2 f e f . . 
-. . . f f f f f 8 8 8 f f f . . 
-. . . . . . . . f 8 8 f . . . . 
-        `],
-    500,
-    true
-    )
-}
-function walkRight() {
-    animation.runImageAnimation(
-        playerSprite,
-        [img`
-. . . . . . . f f . . . . . . . 
-. . . . . f f 2 2 f f . . . . . 
-. . . . f 2 2 2 2 2 2 f . . . . 
-. . . f 2 6 6 6 6 6 6 2 f . . . 
-. . f 2 6 2 2 2 2 2 2 6 2 f . . 
-. . f 6 2 2 2 2 2 2 2 2 6 f . . 
-. . f f 2 2 2 2 2 2 2 2 f f . . 
-. . . f f f f f f f f f f . . . 
-. . . f e e e e e e e e f . . . 
-. . . . f e e e e e e f . . . . 
-. . . f f f e e e e f f f . . . 
-. . f e f 2 2 2 2 2 2 f e f . . 
-. f e b f 2 2 2 2 2 2 f b e f . 
-. f e e f 2 2 2 2 2 2 f e e f . 
-. . f f f 8 8 8 8 8 8 f f f . . 
-. . . . f 8 8 f f 8 8 f . . . . 
-            `],
-        500,
+function walkDown () {
+    if (currentDir != "Down") {
+        currentDir = "Down"
+        animation.runImageAnimation(
+        Matthew,
+        assets.animation`MatthewDown`,
+        200,
         true
-    )
+        )
+    }
 }
+function walkUp () {
+    if (currentDir != "Up") {
+        currentDir = "Up"
+        animation.runImageAnimation(
+        Matthew,
+        assets.animation`MatthewUp`,
+        200,
+        true
+        )
+    }
+}
+function walkRight () {
+    if (currentDir != "Right") {
+        currentDir = "Right"
+        animation.runImageAnimation(
+        Matthew,
+        assets.animation`MatthewRight`,
+        200,
+        true
+        )
+    }
+}
+function walkLeft () {
+    if (currentDir != "Left") {
+        currentDir = "Left"
+        animation.runImageAnimation(
+        Matthew,
+        assets.animation`MatthewLeft`,
+        200,
+        true
+        )
+    }
+}
+let currentDir = ""
+let Matthew: Sprite = null
+let rotation = ""
+let matthew0 = false
+rotation = "down"
+Matthew = sprites.create(assets.image`Delete`, SpriteKind.Player)
+game.onUpdateInterval(100, function () {
+    if (controller.right.isPressed()) {
+        walkRight()
+        rotation = "right"
+    } else if (controller.down.isPressed()) {
+        walkDown()
+        rotation = "down"
+    } else if (controller.left.isPressed()) {
+        walkLeft()
+        rotation = "left"
+    } else if (controller.up.isPressed()) {
+        walkUp()
+        rotation = "up"
+    } else {
+        playerHasStopped()
+    }
+})
