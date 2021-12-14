@@ -2,8 +2,7 @@
     "name": "Sprites",
     "description": "",
     "dependencies": {
-        "device": "*",
-        "Timers": "github:microsoft/arcade-timers#v1.1.0"
+        "device": "*"
     },
     "files": [
         "main.blocks",

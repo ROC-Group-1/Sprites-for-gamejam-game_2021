@@ -1,3 +1,12 @@
+let matthew0 = false
+let rotation = ""
+let Matthew: Sprite = null
+let currentDir = ""
+function animatePlayer () {
+    matthew0 = false
+    rotation = "down"
+    Matthew = sprites.create(assets.image`Delete`, SpriteKind.Player)
+}
 function playerHasStopped () {
     if (currentDir != "Stop") {
         currentDir = "Stop"
@@ -76,12 +85,6 @@ function walkLeft () {
         )
     }
 }
-let currentDir = ""
-let Matthew: Sprite = null
-let rotation = ""
-let matthew0 = false
-rotation = "down"
-Matthew = sprites.create(assets.image`Delete`, SpriteKind.Player)
 game.onUpdateInterval(100, function () {
     if (controller.right.isPressed()) {
         walkRight()
